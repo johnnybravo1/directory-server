@@ -11,8 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("johnnynoble/directory-server")
-	additionalBuildArgs "--pull --build-arg APP_VERSION=${params.APP_VERSION}"
+        app = docker.build("johnnynoble/directory-server", "--pull .")
     }
 
     stage('Test image') {
